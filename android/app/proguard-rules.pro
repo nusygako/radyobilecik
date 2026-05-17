@@ -1,0 +1,6 @@
+-keep class com.google.firebase.** { *; }
+-keep class io.flutter.** { *; }
+-keep class com.ryanheise.audioservice.** { *; }
+-dontwarn com.google.firebase.**
+-dontwarn com.google.android.play.core.**
+-keep class com.google.android.play.core.** { *; }

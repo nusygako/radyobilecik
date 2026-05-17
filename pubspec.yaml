@@ -1,0 +1,55 @@
+﻿name: radyo_app
+description: Radyo 11 ve Bilecik FM canlı yayın uygulaması
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  provider: ^6.1.1
+
+  # Audio
+  just_audio: ^0.9.36
+
+  # Firebase
+  firebase_core: ^3.0.0
+  firebase_messaging: ^15.0.0
+
+  # UI & Navigation
+  webview_flutter: ^4.4.2
+  url_launcher: ^6.2.2
+
+  # Icons
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.3.9
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/logos/radyo11_logo.jpeg"
+  adaptive_icon_background: "#1a1a2e"
+  adaptive_icon_foreground: "assets/logos/radyo11_logo.jpeg"
+
+flutter_native_splash:
+  color: "#1a1a2e"
+  image: assets/logos/radyo11_logo.jpeg
+  android: true
+  ios: true
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/logos/bilecik_fm_logo.jpeg
+    - assets/logos/radyo11_logo.jpeg
