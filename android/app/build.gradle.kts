@@ -27,9 +27,20 @@ android {
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+        create("release") {
+            // Codemagic buluttaki ortam değişkenlerinden bu değerleri otomatik dolduracak
+            storeFile = file(System.getenv("CM_KEYSTORE") ?: (System.getenv("HOME") + "/keystore.keystore"))
+            storePassword = System.getenv("CM_KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("CM_KEY_ALIAS")
+            keyPassword = System.getenv("CM_KEY_PASSWORD")
+        }
+    }
+
     buildTypes {
         release {
-            signingConfig = signingConfigs.getByName("debug")
+            // 🔥 İşte Google Play kilidini açacak olan altın vuruş burası:
+            signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = false
             isShrinkResources = false
         }
