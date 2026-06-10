@@ -29,7 +29,12 @@ defaultConfig {
 
 signingConfigs {
     create("release") {
-        storeFile = file(System.getenv("CM_KEYSTORE_PATH") ?: (System.getProperty("user.home") + "/keystore.keystore"))
+        val keystorePath = System.getenv("CM_KEYSTORE_PATH")
+        if (!keystorePath.isNullOrEmpty()) {
+            storeFile = file(keystorePath)
+        } else {
+            storeFile = file(System.getProperty("user.home") + "/keystore.keystore")
+        }
         storePassword = System.getenv("CM_KEYSTORE_PASSWORD") ?: ""
         keyAlias = System.getenv("CM_KEY_ALIAS") ?: ""
         keyPassword = System.getenv("CM_KEY_PASSWORD") ?: ""
