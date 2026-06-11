@@ -1,7 +1,7 @@
-﻿name: radyo_app
+name: radyo_app
 description: Radyo 11 ve Bilecik FM canlı yayın uygulaması
 publish_to: 'none'
-version: 1.1.0+2
+version: 2.0.0+3
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
@@ -21,8 +21,8 @@ dependencies:
   firebase_messaging: ^15.0.0
 
   # UI & Navigation
-  webview_flutter: ^4.4.2
-  url_launcher: ^6.2.2
+  webview_flutter: ^4.13.1
+  url_launcher: ^6.3.2
 
   # Icons
   cupertino_icons: ^1.0.8
