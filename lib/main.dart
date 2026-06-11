@@ -60,8 +60,8 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    const RadioPlayerScreen(radioUrl: 'https://yayin.radyo11.com.tr/8010/stream', radioName: 'Bilecik FM', logoAsset: 'assets/bilecikfm_logo.png'),
-    const RadioPlayerScreen(radioUrl: 'https://yayin.radyo11.com.tr/8020/stream', radioName: 'Radyo 11', logoAsset: 'assets/radyo11_logo.png'),
+    const RadioPlayerScreen(radioUrl: 'https://yayin.radyo11.com.tr/8010/stream', radioName: 'Bilecik FM', logoAsset: 'assets/logos/bilecik_fm_logo.jpeg'),
+    const RadioPlayerScreen(radioUrl: 'https://yayin.radyo11.com.tr/8020/stream', radioName: 'Radyo 11', logoAsset: 'assets/logos/radyo11_logo.jpeg'),
     const WebViewScreen(url: 'https://reklamsesi.com'),
   ];
 
@@ -219,15 +219,13 @@ class _RadioPlayerScreenState extends State<RadioPlayerScreen> {
                     ],
                   ),
                   child: Center(
-                    if (_isLoading) ...[
-                      const CircularProgressIndicator(color: Colors.white)
-                    ] else ...[
-                      Icon(
-                        _isPlaying ? Icons.stop_rounded : Icons.play_arrow_rounded,
-                        size: 55,
-                        color: Colors.white,
-                      )
-                    ],
+                    child: _isLoading 
+                        ? const CircularProgressIndicator(color: Colors.white)
+                        : Icon(
+                            _isPlaying ? Icons.stop_rounded : Icons.play_arrow_rounded,
+                            size: 55,
+                            color: Colors.white,
+                          ),
                   ),
                 ),
               ),
