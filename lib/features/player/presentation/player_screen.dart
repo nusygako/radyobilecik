@@ -51,6 +51,110 @@ class PlayerScreen extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             child: Column(
               children: [
+                // Station Selector
+                Row(
+                  children: [
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () => playerProvider.changeStation(
+                          Station(
+                            id: 'radyo11',
+                            name: 'Radyo 11 - FM 105.0',
+                            streamUrl: 'http://radyo11.ozelip.com:9832/stream',
+                            websiteUrl: 'http://www.radyo11.com.tr',
+                            newsUrl: 'https://www.radyo11.com/haberler',
+                            facebookUrl: 'https://facebook.com/radyo11',
+                            instagramUrl: 'https://instagram.com/radyobilecik',
+                            whatsappNumber: '+905063111516',
+                            fallbackStreamUrl: 'http://95.173.161.131:9832/stream',
+                            logoAssetPath: 'assets/logos/radyo11_logo.jpeg',
+                          ),
+                        ),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          decoration: BoxDecoration(
+                            color: station?.id == 'radyo11'
+                                ? Theme.of(context).primaryColor
+                                : Theme.of(context).primaryColor.withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              color: Theme.of(context).primaryColor,
+                              width: station?.id == 'radyo11' ? 2 : 1,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(6),
+                                child: Image.asset('assets/logos/radyo11_logo.jpeg', width: 28, height: 28, fit: BoxFit.cover),
+                              ),
+                              const SizedBox(width: 8),
+                              Text(
+                                'Radyo 11',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: station?.id == 'radyo11' ? Colors.white : Theme.of(context).primaryColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () => playerProvider.changeStation(
+                          Station(
+                            id: 'bilecikfm',
+                            name: 'Bilecik FM - FM 99.9',
+                            streamUrl: 'http://bilecikfm.kesintisizyayin.com:9980/;',
+                            websiteUrl: 'http://www.bilecikfm.com.tr',
+                            newsUrl: 'https://www.bilecikfm.com/haberler',
+                            facebookUrl: 'https://facebook.com/bilecikfm',
+                            instagramUrl: 'https://instagram.com/radyobilecik',
+                            whatsappNumber: '+905063111516',
+                            fallbackStreamUrl: 'http://bilecikfm.kesintisizyayin.com:9980/stream',
+                            logoAssetPath: 'assets/logos/bilecik_fm_logo.jpeg',
+                          ),
+                        ),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          decoration: BoxDecoration(
+                            color: station?.id == 'bilecikfm'
+                                ? Theme.of(context).primaryColor
+                                : Theme.of(context).primaryColor.withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              color: Theme.of(context).primaryColor,
+                              width: station?.id == 'bilecikfm' ? 2 : 1,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(6),
+                                child: Image.asset('assets/logos/bilecik_fm_logo.jpeg', width: 28, height: 28, fit: BoxFit.cover),
+                              ),
+                              const SizedBox(width: 8),
+                              Text(
+                                'Bilecik FM',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: station?.id == 'bilecikfm' ? Colors.white : Theme.of(context).primaryColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+
                 // Station Info Card
                 Card(
                   child: Padding(

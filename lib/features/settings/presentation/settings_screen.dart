@@ -181,13 +181,13 @@ class SettingsScreen extends StatelessWidget {
                   const ListTile(
                     leading: Icon(Icons.info),
                     title: Text('Hakkında'),
-                    subtitle: Text('Radyo App v1.0.0'),
+                    subtitle: Text('@cekenbiradam'),
                   ),
                   const Divider(height: 1),
                   ListTile(
                     leading: const Icon(Icons.code),
                     title: const Text('Uygulama Bilgisi'),
-                    subtitle: const Text('Flutter ile geliştirilmiştir'),
+                    subtitle: const Text('Nusret GAKÇI'),
                     onTap: () {
                       showAboutDialog(
                         context: context,
@@ -196,7 +196,7 @@ class SettingsScreen extends StatelessWidget {
                         applicationIcon: const Icon(Icons.radio, size: 48),
                         children: const [
                           Text(
-                            'Radyo 11 ve Bilecik FM için canlı radyo yayın uygulaması',
+                            'Radyo 11 ve Bilecik FM için canlı radyo yayın uygulaması\n\nGeliştirici: Nusret GAKÇI\n@cekenbiradam',
                           ),
                         ],
                       );
