@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("dev.flutter.flutter-gradle-plugin")
     id("com.google.gms.google-services")
 }
 
@@ -29,8 +28,6 @@ android {
 
     buildTypes {
         release {
-            // Codemagic otomatik imzalama paneliyle çelişmemesi için signingConfig satırını tamamen devre dışı bıraktık
-            // signingConfig = signingConfigs.getByName("debug")
             isMinifyEnabled = false
             isShrinkResources = false
         }
