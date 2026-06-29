@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.radyobilecik.radyoapp"
+    namespace = "com.bilecikfm.radyo"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -20,7 +20,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.radyobilecik.radyoapp"
+        applicationId = "com.bilecikfm.radyo"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

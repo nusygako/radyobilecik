@@ -1,4 +1,4 @@
-package com.radyobilecik.radyoapp
+package com.bilecikfm.radyo
 
 import io.flutter.embedding.android.FlutterActivity
 
