@@ -1,0 +1,72 @@
+workflows:
+  android-workflow:
+    name: Android Release
+    environment:
+      flutter: stable
+      android_signing:
+        - radyobilecik_keystore
+      vars:
+        PACKAGE_NAME: "com.bilecikfm.radyo"
+    scripts:
+      - name: Get Flutter packages
+        script: flutter packages pub get
+      - name: Generate app icons
+        script: flutter pub run flutter_launcher_icons
+      - name: Generate splash screen
+        script: flutter pub run flutter_native_splash:create
+      - name: Build Android App Bundle
+        script: |
+          flutter build appbundle --release \
+            --build-name=2.1.0 \
+            --build-number=$(($(google-play get-latest-build-number \
+              --package-name "$PACKAGE_NAME" \
+              --tracks=alpha,beta,production) + 1))
+    artifacts:
+      - build/app/outputs/bundle/release/*.aab
+    publishing:
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: internal
+        submit_as_draft: true
+
+  ios-workflow:
+    name: iOS Release
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.bilecikfm.radyo
+      vars:
+        BUNDLE_ID: "com.bilecikfm.radyo"
+        XCODE_PROJECT: "ios/Runner.xcodeproj"
+        XCODE_SCHEME: "Runner"
+    scripts:
+      - name: Get Flutter packages
+        script: flutter packages pub get
+      - name: Generate app icons
+        script: flutter pub run flutter_launcher_icons
+      - name: Generate splash screen
+        script: flutter pub run flutter_native_splash:create
+      - name: Install CocoaPods
+        script: find . -name "Podfile" -execdir pod install \;
+      - name: Set up code signing
+        script: xcode-project use-profiles
+      - name: Build iOS IPA
+        script: |
+          flutter build ipa --release \
+            --build-name=2.1.0 \
+            --build-number=$(($(app-store-connect get-latest-testflight-build-number \
+              "$BUNDLE_ID") + 1)) \
+            --export-options-plist=/Users/builder/export_options.plist
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - flutter_drive.log
+    publishing:
+      app_store_connect:
+        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
+        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
+        submit_to_testflight: false

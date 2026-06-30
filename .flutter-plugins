@@ -1,0 +1,12 @@
+# Flutter Radyo App
+
+Flutter tabanlı radyo yayın uygulaması projesi.
+
+## Hızlı Başlangıç
+
+```bash
+flutter pub get
+flutter run
+```
+
+Detaylı bilgi için `README.md` dosyasına bakın.

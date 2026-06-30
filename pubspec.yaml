@@ -15,6 +15,7 @@ dependencies:
 
   # Audio
   just_audio: ^0.9.36
+  audio_session: ^0.1.18
 
   # Firebase
   firebase_core: ^3.0.0
@@ -37,15 +38,17 @@ dev_dependencies:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/logos/radyo11_logo.jpeg"
+  image_path: "assets/logos/bilecik_fm_logo.jpeg"
   adaptive_icon_background: "#1a1a2e"
-  adaptive_icon_foreground: "assets/logos/radyo11_logo.jpeg"
+  adaptive_icon_foreground: "assets/logos/bilecik_fm_logo.jpeg"
+  min_sdk_android: 21
 
 flutter_native_splash:
   color: "#1a1a2e"
-  image: assets/logos/radyo11_logo.jpeg
+  image: assets/logos/bilecik_fm_logo.jpeg
   android: true
   ios: true
+  fullscreen: false
 
 flutter:
   uses-material-design: true
